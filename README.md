@@ -4,6 +4,9 @@ Python Wrapper for Proofpoint's Threat Insight API
 ## Install
 ```pip3 install pyproofpoint```
 
+## Docs
+https://help.proofpoint.com/Threat_Insight_Dashboard/API_Documentation/Campaign_API
+
 ## Usage
 ```
 from pyproofpoint import proofpoint
