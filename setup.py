@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pyproofpoint",
-    version="0.0.1",
+    version="1.0.0",
     author="Derek Thomas2",
     author_email="derek.e.thomas@biola.edu",
     maintainer='Derek Thomas2',

@@ -172,6 +172,19 @@ class ProofPoint(object):
             'threatStatus': threatStatus
         }
         return self.send_request(uri, params=params)
+
+    def get_threat_info(self, threatId):
+        '''The Threat API allows administrators to pull detailed attributes about individual threats observed in their environment.
+            It can be used to retrieve more intelligence for threats identified in the SIEM or Campaign API responses.
+        
+        :param threatId:A string containing a threat identifier.
+
+        
+        '''
+        uri = f"/v2/threat/summary/{threatId}"
+        if not (threatId):
+            raise ValueError(f"Must provide valid ThreatId, value provided: {threatId}")
+        return self.send_request(uri)
     
     def get_issues(self, interval=None, sinceSeconds=None, sinceTime=None, dataformat='syslog', threatType=None, threatStatus=None):
         '''Fetch events for clicks to malicious URLs permitted and messages delivered containing a known attachment threat within the specified time period
