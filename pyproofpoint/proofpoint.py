@@ -1,10 +1,6 @@
 import requests
 
 
-class ProofpointAPIError(BaseException):
-    pass
-
-
 class ProofPoint(object):
     """ProofPoint Threat Insights API Class."""
 
@@ -298,13 +294,8 @@ class ProofPoint(object):
 
     def send_request(self, uri, params=None):
         url = self.base_url + uri
-        try:
-            r = requests.get(
-                url, auth=self.auth, params=params, timeout=60
-            )
-            r.raise_for_status()
-            return r.json()
-        except Exception as e:
-            raise ProofpointAPIError(
-                f"Error connecting to Proofpoint API: {e}: {url}"
-            )
+        r = requests.get(
+            url, auth=self.auth, params=params, timeout=60
+        )
+        r.raise_for_status()
+        return r.json()
